@@ -3,11 +3,15 @@ $(function(){
 
     var WIDTH = 800,
         HEIGHT = 600,
+
         TEXTURE_PATH = 'textures',
-        TEXTURES = ['calculator32b.jpg','texture.jpg','pyramids.jpg'],
+        TEXTURES = ['earth.jpg','calculator32b.jpg','texture.jpg','pyramids.jpg'],
+        
         SHADER_PATH = 'shaders',
         FRAGMENT_SHADER_FILES = [
                 'passthrough.gl',
+                'brightness_contrast.gl',
+                'moving_average.gl',
                 'gauss3x3.gl',
                 'gauss5x5.gl',
                 'gauss7x7.gl',
