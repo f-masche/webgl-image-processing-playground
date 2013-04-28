@@ -1,0 +1,26 @@
+uniform sampler2D tDiffuse;
+uniform vec2 offset3x3[9];
+uniform vec2 offset5x5[25];
+uniform vec2 offset7x7[49];
+
+varying vec2 texCoords;
+
+void main() {
+
+    float sobelX[9];
+    sobelX[0] = 1.0; sobelX[1] = 0.0; sobelX[2] = -1.0;
+    sobelX[3] = 2.0; sobelX[4] = 0.0; sobelX[5] = -2.0;
+    sobelX[6] = 1.0; sobelX[7] = 0.0; sobelX[8] = -1.0;
+
+    vec4 texel = vec4(0.0, 0.0, 0.0, 1.0);
+    
+    for (int i = 0; i < 9; i++)
+    {   
+        vec4 otherTexel = texture2D(tDiffuse, texCoords + offset3x3[i]);
+        float average = (otherTexel.x + otherTexel.y + otherTexel.z) / 3.0;
+        texel += vec4(average, average, average, 1.0)  * sobelX[i];
+    }
+
+
+    gl_FragColor = texel;
+}
