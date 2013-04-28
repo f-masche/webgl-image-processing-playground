@@ -3,15 +3,21 @@ $(function(){
 
     var WIDTH = 800,
         HEIGHT = 600,
-        TEXTURES = ['pyramids.jpg', 'texture.jpg'],
+        TEXTURE_PATH = 'textures',
+        TEXTURES = ['calculator32b.jpg','texture.jpg','pyramids.jpg'],
         SHADER_PATH = 'shaders',
         FRAGMENT_SHADER_FILES = [
-                'passthrough_fragment_shader.gl',
-                'gauss3x3_fragment_shader.gl',
-                'gauss5x5_fragment_shader.gl',
-                'gauss7x7_fragment_shader.gl',
-                'laplace_fragment_shader.gl',
-                'sobel_fragment_shader.gl'],
+                'passthrough.gl',
+                'gauss3x3.gl',
+                'gauss5x5.gl',
+                'gauss7x7.gl',
+                'gauss7x7_vertical.gl',
+                'gauss7x7_horizontal.gl',
+                'dilatation.gl',
+                'erosion.gl',
+                'sharpen.gl',
+                'laplace.gl',
+                'sobel.gl'],
 
 
         VERTEX_SHADER = ['varying vec2 texCoords;',
@@ -39,9 +45,10 @@ $(function(){
             shader1: null,
             shader2: null,
             shader3: null,
-            param : new THREE.Vector3(1.0, 1.0, 1.0),
-            shaders : ['none'],
-            textures : TEXTURES
+            param: new THREE.Vector3(1.0, 1.0, 0.0),
+            shaders: ['none'],
+            textures: TEXTURES,
+            numberOfPasses: 1
         };
 
 
@@ -53,7 +60,7 @@ $(function(){
 
         scene.remove(mesh);
 
-        var texture = THREE.ImageUtils.loadTexture(textureId,{},function(){
+        var texture = THREE.ImageUtils.loadTexture(TEXTURE_PATH +'/'+ textureId,{},function(){
 
             var plane = new THREE.PlaneGeometry( WIDTH, HEIGHT ),
 
@@ -69,7 +76,7 @@ $(function(){
     }
 
     function refreshShaderPasses(){
-        var i, shaderPass;
+        var i,j, shaderPass;
 
         composer.passes.splice(0,composer.passes.length);
         shaderPass = new THREE.RenderPass( scene, camera );
@@ -78,8 +85,10 @@ $(function(){
         for(i = 0; i < shaderPasses.length; i++){
             if(!shaderPasses[i]){ continue; }
 
-            shaderPass = new THREE.ShaderPass(shaderPasses[i]);
-            composer.addPass( shaderPass );
+            for (j = 0; j < guiModel.numberOfPasses; j++){
+                shaderPass = new THREE.ShaderPass(shaderPasses[i]);
+                composer.addPass( shaderPass ); 
+            }
         }
         shaderPass.renderToScreen = true;
     }
@@ -102,9 +111,10 @@ $(function(){
             setupScene(textureId);
         });
 
-        gui.add(guiModel.param, 'x', 0, 1).onChange(refreshShaderPasses);
-        gui.add(guiModel.param, 'y', 0, 1).onChange(refreshShaderPasses);
-        gui.add(guiModel.param, 'z', 0, 1).onChange(refreshShaderPasses);
+        gui.add(guiModel, 'numberOfPasses', 1, 5).step(1).onChange(refreshShaderPasses);
+        gui.add(guiModel.param, 'x', -5, 5).onChange(refreshShaderPasses);
+        gui.add(guiModel.param, 'y', -5, 5).onChange(refreshShaderPasses);
+        gui.add(guiModel.param, 'z',0,10).step(1).onChange(refreshShaderPasses);
 
         //bugfix
         $(gui.domElement).find('select').css('width','100%');
