@@ -5,8 +5,8 @@ $(function(){
         HEIGHT = 600,
 
         TEXTURE_PATH = 'textures',
-        TEXTURES = ['earth.jpg','calculator32b.jpg','texture.jpg','pyramids.jpg'],
-        
+        TEXTURES = ['earth.jpg','calculator32b.jpg'],
+
         SHADER_PATH = 'shaders',
         FRAGMENT_SHADER_FILES = [
                 'passthrough.gl',
@@ -55,10 +55,6 @@ $(function(){
             numberOfPasses: 1
         };
 
-
-    camera.position.z = 10;
-    renderer.setSize(WIDTH, HEIGHT);
-    $container.append(renderer.domElement);
 
     function setupScene(textureId){
 
@@ -203,6 +199,10 @@ $(function(){
         stats.end();
         requestAnimationFrame(render);
     }
+    
+    camera.position.z = 10;
+    renderer.setSize(WIDTH, HEIGHT);
+    $container.append(renderer.domElement);
 
     setupScene(TEXTURES[0]);
     loadShaders(initGui);
