@@ -5,13 +5,14 @@ $(function(){
         HEIGHT = 600,
 
         TEXTURE_PATH = 'textures',
-        TEXTURES = ['earth.jpg','calculator32b.jpg'],
+        // TEXTURES = ['earth.jpg','calculator32b.jpg'],
+        TEXTURES = ['calculator32b.jpg'],
 
         SHADER_PATH = 'shaders',
         FRAGMENT_SHADER_FILES = [
                 'passthrough.gl',
-                'brightness_contrast.gl',
-                'moving_average.gl',
+                // 'brightness_contrast.gl',
+                // 'moving_average.gl',
                 'gauss3x3.gl',
                 'gauss5x5.gl',
                 'gauss7x7.gl',
