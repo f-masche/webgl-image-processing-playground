@@ -1,0 +1,11 @@
+{
+  "preset": "airbnb",
+  "disallowTrailingComma": true,
+  "requireTrailingComma": false,
+  "disallowSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningRoundBrace": true,
+  },
+  "requireSpacesInAnonymousFunctionExpression": {
+    "beforeOpeningCurlyBrace": true
+  }
+}

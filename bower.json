@@ -1,0 +1,32 @@
+{
+  "name": "webgl-image-processing-playground",
+  "description": "WebGL image processing playground",
+  "main": "server.js",
+  "authors": [
+    "Fabian Maschewski"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "webgl",
+    "image",
+    "processing",
+    "shader"
+  ],
+  "homepage": "https://github.com/f-masche/webgl-image-processing",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples"
+  ],
+  "dependencies": {
+    "dat-gui": "~0.5.1",
+    "three.js": "threejs#*",
+    "stats.js": "*",
+    "zepto": "~1.1.6"
+  }
+}

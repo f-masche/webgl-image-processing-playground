@@ -1,0 +1,29 @@
+{
+  "name": "webgl-image-processing-playground",
+  "version": "1.0.0",
+  "description": "WebGL image processing playground",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f-masche/webgl-image-processing-playground.git"
+  },
+  "keywords": [
+    "webgl",
+    "image",
+    "processing",
+    "shader"
+  ],
+  "author": "Fabian Maschewski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/f-masche/webgl-image-processing-playground/issues"
+  },
+  "homepage": "https://github.com/f-masche/webgl-image-processing-playground#readme",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0"
+  }
+}
