@@ -7,11 +7,8 @@ uniform vec3 param;
 varying vec2 texCoords;
 
 void main() {
+  vec4 texel = texture2D(tDiffuse, texCoords);
 
-
-
-    vec4 texel = texture2D(tDiffuse, texCoords);
-    
-    gl_FragColor.a = texel.a;
-    gl_FragColor.rgb =  (texel.rgb + param.x) * param.y;
+  gl_FragColor.a = texel.a;
+  gl_FragColor.rgb =  (texel.rgb + param.x) * param.y;
 }

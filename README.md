@@ -1,9 +1,10 @@
-webgl-image-processing
+WebGL Image Processing
 ======================
 
-Small project to test image processing with webgl shaders.
+Try out image processing algorithms with webgl shaders.
 Currently includes following shaders:
 
+- passthrough
 - gauss
 - laplace
 - sharpen
@@ -13,5 +14,3 @@ Currently includes following shaders:
 - brightness
 - contrast
 - moving average
-
-Only compatible with Chrome, at the moment!
