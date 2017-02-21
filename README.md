@@ -1,9 +1,12 @@
-webgl-image-processing
+[![Build Status](https://travis-ci.org/f-masche/webgl-image-processing-playground.svg?branch=master)](https://travis-ci.org/f-masche/webgl-image-processing-playground)
+
+WebGL Image Processing
 ======================
 
-Small project to test image processing with webgl shaders.
+Try out image processing algorithms with webgl shaders.
 Currently includes following shaders:
 
+- passthrough
 - gauss
 - laplace
 - sharpen
@@ -13,5 +16,3 @@ Currently includes following shaders:
 - brightness
 - contrast
 - moving average
-
-Only compatible with Chrome, at the moment!
