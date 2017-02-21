@@ -1,5 +1,6 @@
 import THREE from 'three';
 import 'three/examples/js/postprocessing/EffectComposer';
+import 'three/examples/js/postprocessing/MaskPass';
 import 'three/examples/js/postprocessing/ShaderPass';
 import 'three/examples/js/postprocessing/RenderPass';
 import 'three/examples/js/shaders/CopyShader';
