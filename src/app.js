@@ -1,5 +1,6 @@
 import THREE from 'three';
 import 'three/examples/js/postprocessing/EffectComposer';
+import 'three/examples/js/postprocessing/MaskPass';
 import 'three/examples/js/postprocessing/ShaderPass';
 import 'three/examples/js/postprocessing/RenderPass';
 import 'three/examples/js/shaders/CopyShader';
@@ -20,11 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let mesh;
   const shaderPasses = [];
   const guiModel = {
-    shader1: null,
-    shader2: null,
-    shader3: null,
+    shader1: 'none',
+    shader2: 'none',
+    shader3: 'none',
     param: new THREE.Vector3(1.0, 1.0, 0.0),
     shaders: ['none'],
+    texture: textures[0],
     textures: textures,
     numberOfPasses: 1
   };
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    gui.add(guiModel, 'textures', guiModel.textures).onChange(textureId => {
+    gui.add(guiModel, 'texture', guiModel.textures).onChange(textureId => {
       setupScene(textureId);
     });
 
@@ -109,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
         shader.code
       );
     });
+    guiModel.shader1 = './passthrough.gs';
+    shaderPasses[0] = shaders['./passthrough.gs'];
   }
 
   function calcTextureOffsets(width, height, size) {
