@@ -21,7 +21,7 @@ Currently implemented  shaders:
 
 [Running Example](https://webglimageprocessing.herokuapp.com/)
 
-## Run localy
+## Run locally
 To run the app please make sure you are using `nodejs >= 6.9.4`.   
 Run npm `npm install` to install the required dependencies.
 
