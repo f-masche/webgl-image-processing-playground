@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/f-masche/webgl-image-processing-playground.svg?branch=master)](https://travis-ci.org/f-masche/webgl-image-processing-playground)
+
 WebGL Image Processing
 ======================
 
