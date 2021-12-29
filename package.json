@@ -25,9 +25,6 @@
     "url": "https://github.com/f-masche/webgl-image-processing-playground/issues"
   },
   "homepage": "https://github.com/f-masche/webgl-image-processing-playground#readme",
-  "dependencies": {
-    "express": "^4.14.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "babel-loader": "^8.2.3",
