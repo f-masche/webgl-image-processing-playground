@@ -8,10 +8,10 @@ module.exports = {
   },
   output: {
     filename: 'app.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'docs')
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.gs$/,
         use: 'raw-loader'
@@ -31,7 +31,9 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'src'),
+    static: {
+      directory: path.join(__dirname, 'src')
+    },
     port: 8000,
     hot: true
   },
