@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupScene(textureId) {
     scene.remove(mesh);
     const textureLoader = new THREE.TextureLoader();
+
     textureLoader.load('./' + textureId, texture => {
       const plane = new THREE.PlaneGeometry(width, height);
       const shaderMaterial = new THREE.MeshBasicMaterial({
