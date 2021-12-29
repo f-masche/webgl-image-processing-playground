@@ -1,9 +1,7 @@
-import THREE from 'three';
-import 'three/examples/js/postprocessing/EffectComposer';
-import 'three/examples/js/postprocessing/MaskPass';
-import 'three/examples/js/postprocessing/ShaderPass';
-import 'three/examples/js/postprocessing/RenderPass';
-import 'three/examples/js/shaders/CopyShader';
+import * as THREE from 'three';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import Stats from 'stats.js';
 import dat from 'dat-gui';
 import shaders from './shaders/fragment';
@@ -11,12 +9,14 @@ import vertexShaders from './shaders/vertex';
 import textures from './textures';
 import './styles/styles.less';
 
+console.log(vertexShaders)
+
 document.addEventListener('DOMContentLoaded', () => {
   const gui = new dat.GUI();
   const stats = new Stats();
   const container = document.createElement('div');
   const renderer = new THREE.WebGLRenderer();
-  const composer = new THREE.EffectComposer(renderer);
+  const composer = new EffectComposer(renderer);
   const scene = new THREE.Scene();
   let mesh;
   const shaderPasses = [];
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let shaderPass;
 
     composer.passes.splice(0, composer.passes.length);
-    shaderPass = new THREE.RenderPass(scene, camera);
+    shaderPass = new RenderPass(scene, camera);
     composer.addPass(shaderPass);
 
     for (let i = 0; i < shaderPasses.length; i++) {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       for (let j = 0; j < guiModel.numberOfPasses; j++) {
-        shaderPass = new THREE.ShaderPass(shaderPasses[i]);
+        shaderPass = new ShaderPass(shaderPasses[i]);
         composer.addPass(shaderPass);
       }
     }
