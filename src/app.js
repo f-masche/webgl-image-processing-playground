@@ -9,8 +9,6 @@ import vertexShaders from './shaders/vertex';
 import textures from './textures';
 import './styles/styles.less';
 
-console.log(vertexShaders)
-
 document.addEventListener('DOMContentLoaded', () => {
   const gui = new dat.GUI();
   const stats = new Stats();
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupScene(textureId) {
     scene.remove(mesh);
     const textureLoader = new THREE.TextureLoader();
-    textureLoader.load('/textures/' + textureId, texture => {
+    textureLoader.load('textures/' + textureId, texture => {
       const plane = new THREE.PlaneGeometry(width, height);
       const shaderMaterial = new THREE.MeshBasicMaterial({
         map: texture
